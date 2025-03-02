@@ -5,13 +5,15 @@ _ = load_dotenv(find_dotenv())
 
 client = openai.Client()
 
-def send_message(chat):
+def send_message(chat, tools=None):
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=chat,
         temperature=0,
         max_tokens=1000,
         stream=True,
+        tools=tools,
+        tool_choice='auto'
     )
     print('GPT: ', end='')
     message_completed = ''
