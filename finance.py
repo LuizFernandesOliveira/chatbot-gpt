@@ -8,6 +8,8 @@ _ = load_dotenv(find_dotenv())
 client = openai.Client()
 
 def get_ticker_history(ticker, period='1mo'):
+    print('HTTP: Getting historical data for ticker {}'.format(ticker))
+    ticker = ticker.replace('.SA', '')
     ticker_obj = yf.Ticker(f'{ticker}.SA')
     json_obj = ticker_obj.history(period=period)['Close']
     json_obj.index = json_obj.index.strftime('%Y-%m-%d')
@@ -73,7 +75,6 @@ def send_message(chat):
                 'name': func_name,
                 'content': tool_response
             })
-        print()
 
         print('GPT: ', end='')
         response = client.chat.completions.create(
