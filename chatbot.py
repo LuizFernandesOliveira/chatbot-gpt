@@ -1,3 +1,5 @@
+#!/Users/luiz.oliveira/luizfernandesoliveira/chatbot-gpt/.venv/bin/python
+
 import openai
 from dotenv import load_dotenv, find_dotenv
 
@@ -7,7 +9,7 @@ client = openai.Client()
 
 def send_message(chat):
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo-0125",
+        model="gpt-4o",
         messages=chat,
         temperature=0,
         max_tokens=1000,
