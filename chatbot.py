@@ -1,5 +1,3 @@
-#!/Users/luiz.oliveira/luizfernandesoliveira/chatbot-gpt/.venv/bin/python
-
 import openai
 from dotenv import load_dotenv, find_dotenv
 
